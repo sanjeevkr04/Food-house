@@ -1,0 +1,60 @@
+@import "base.css";
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    border-radius: 8px;
+    margin: auto;
+    background-color: var(--lightgray);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: var(--primary);
+    padding: 8px;
+    max-width: 92%;
+}
+
+.container h1{
+    border-bottom: 1px solid;
+    padding: 8px 0 16px;
+}
+
+form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+}
+
+.input{
+    border: 1px solid;
+    min-width: 240px;
+    max-width: 540px;
+    margin: 1rem 0;
+    padding: .4rem .2rem;
+    border-radius: 5px;
+}
+
+.btn{
+    font-size: 22px;
+    font-weight: bold;
+    background-color: var(--primary);
+    border: none;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    padding: .2rem .5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.btn:hover{
+    background-color: var(--primary-hover);
+}
+
+.error{
+    color: red;
+}

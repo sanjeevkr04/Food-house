@@ -1,0 +1,24 @@
+:root{
+    /* Colors */
+    --primary: #1d92f2;
+    --primary-hover: #005fc4;
+    --secondary: #50c783;
+    --secondary-hover: #38fc8d;
+    --success: #5ce95c;
+    --danger: #ee5353;
+    --warning: #e6e64f;
+    --lightgray: #f1f2f6;
+
+    font-size: 1.05em;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+html, body{
+    height: 100%;
+}

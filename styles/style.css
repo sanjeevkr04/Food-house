@@ -1,0 +1,311 @@
+@import './base.css';
+
+:root{
+    --header-height: 400px;
+    --footer-height: 32px;
+}
+
+.page{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: var(--header-height) auto var(--footer-height);
+}
+
+header{
+    background-color: rgb(247, 247, 247);
+}
+
+.header{
+    display: flex;
+    color: var(--primary);
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    height: 32%;
+}
+
+.header > img{
+    max-height: 85%;
+}
+
+.header > ul{
+    display: flex;
+}
+
+.header > ul > li{
+    padding: 4px;
+    font-weight: bold;
+    font-size: large;
+    margin: 4px;
+    list-style-type: none;
+    color: var(--primary);
+}
+
+.searchbar{
+    background: url("../images/bg.jpg");
+    height: 68%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar > .search{
+    padding: 6px;
+    font-size: 1.2rem;
+    min-width: 40%;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    color: blue;
+    border: none;
+    margin-right: 10px;
+}
+
+.searchbar > .submit{
+    padding: 6px 10px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    background: var(--primary);
+    border: 2px solid var(--primary-hover);
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container > div{
+    padding: 24px 0;
+    text-align: center;
+}
+
+.section > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 24px;
+}
+
+.section > div > div{
+    max-width: 30%;
+    margin: 0 auto;
+    min-width: 300px;
+    min-height: 400px;
+}
+
+.section h2{
+    max-width: min-content;
+    white-space: nowrap;
+    margin: 0 auto 10px;
+    padding: 4px;
+    border-bottom: 3px solid;
+}
+
+.categories .card{
+    position: relative;
+    display: block;
+    border-radius: 8px;
+    width: 300px;
+    height: 400px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -2px -2px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.categories .card h3{
+    font-size: 2em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 20px;
+    color: var(--secondary);
+    text-shadow: -1px 1px 0 var(--primary-hover), 1px 1px 0 var(--primary-hover), 1px -1px 0 var(--primary-hover), -1px -1px 0 var(--primary-hover);
+}
+
+.food{
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.food-card{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -2px -2px 8px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+}
+
+.flip{
+    transform: rotateY(-180deg);
+}
+
+.food-card-front, .food-card-back{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.food-card-back{
+    transform: rotateY(180deg);
+    background: linear-gradient(var(--primary), var(--secondary));
+    overflow: auto;
+    scrollbar-width: none;
+    color: white;
+}
+
+.food-card-back::-webkit-scrollbar{
+    display: none;
+}
+
+.food-card-front::before{
+    content: "";
+    clip-path: circle(50% at 80% 20%);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--secondary);
+    transition: all 1s;
+}
+
+.food-card-front img{
+    width: 80%;
+    object-fit: contain;
+    margin: 10% auto;
+    height: 50%;
+    max-height: 50%;
+    transition: all 1s;
+}
+
+.food-card-front .price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10% 10% 2%;
+    transition: all 1s;
+}
+
+.food-card-front button{
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    background: var(--primary);
+    border: none;
+    border-radius: 8px;
+    transition: all 1s;
+    cursor: pointer;
+    margin-top: 50%;
+}
+
+.food-card:hover .food-card-front::before{
+    clip-path: circle(65% at 80% 20%);
+}
+
+.food-card:hover img{
+    margin: 5% auto;
+    width: 90%;
+    height: 90%;
+}
+
+.food-card:hover .price{
+    padding: 5% 10% 2%;
+}
+
+.food-card:hover .food-card-front button{
+    margin-top: 10%;
+}
+
+.food-card-front button:hover{
+    background-color: var(--secondary);
+}
+
+.food-card-back .title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+    position: sticky;
+    top: 0;
+    background-color: var(--primary);
+}
+
+.food-card-back .title h3{
+    color: #ffd701;
+    flex: 1;
+    text-align: left;
+}
+
+.food-card-back .title span{
+    cursor: pointer;
+}
+
+.food-card-back form{
+    max-width: 95%;
+    margin: auto;
+}
+
+.food-card-back fieldset{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin: 10px auto;
+}
+
+.food-card-back legend{
+    font-weight: bold;
+}
+
+.food-card-back label{
+    width: 30%;
+    text-align: left;
+}
+
+.food-card-back input, textarea{
+    width: 70%;
+    padding: 2px;
+    margin: 2px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+.food-card-back textarea{
+    resize: vertical;
+}
+
+.food-card-back input[type='submit']{
+    margin-bottom: 10px;
+}
+
+.disabled-input{
+    border: none !important;
+    box-shadow: none;
+}
+
+footer{
+    background-color: aqua;
+}
+
+/* globals */
+a{
+    text-decoration: none;
+}
+
+a:visited{
+    color: inherit;
+}
