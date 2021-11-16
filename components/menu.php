@@ -20,6 +20,7 @@
         <header>
             <div class="header">
                 <img src='images/logo.png' alt="" srcset="">
+                <h1>Food house</h1>
                 <ul>
                     <li <?php echo $menuId == 0? 'style="border-bottom: 3px solid"': "" ?>><a href="<?php echo SITEURL ?>">Home</a></li>
                     <li <?php echo $menuId == 1? 'style="border-bottom: 3px solid"': "" ?>><a href="<?php echo SITEURL."categories.php" ?>">Categories</a></li>
@@ -27,8 +28,8 @@
                     <li <?php echo $menuId == 3? 'style="border-bottom: 3px solid"': "" ?>><a href="<?php echo SITEURL."contact.php" ?>">Contact</a></li>
                 </ul>
             </div>
-            <form class="searchbar" target="">
-                <input class="search" type="text" name="search" placeholder="Type something ...">
+            <form action="<?php echo SITEURL."foods.php" ?>" class="searchbar" method="get">
+                <input class="search" type="text" name="search" placeholder="Search for foods..." value=<?php echo isset($search)? $search: "" ?>>
                 <input class="submit" type="submit" value="Search">
             </form>
         </header>

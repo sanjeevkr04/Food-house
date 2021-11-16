@@ -30,6 +30,12 @@ header{
     max-height: 85%;
 }
 
+.header h1{
+    text-decoration: underline dashed;
+    font-style: italic;
+    text-shadow: 2px 2px 4px var(--secondary);
+}
+
 .header > ul{
     display: flex;
 }
@@ -90,11 +96,13 @@ header{
     align-items: center;
     justify-content: space-around;
     margin-top: 24px;
+    flex-wrap: wrap;
 }
 
 .section > div > div{
     max-width: 30%;
     margin: 0 auto;
+    padding: 10px;
     min-width: 300px;
     min-height: 400px;
 }
@@ -115,6 +123,8 @@ header{
     height: 400px;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -2px -2px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    background-position: center !important;
+    margin: 10px;
 }
 
 .categories .card h3{
@@ -284,17 +294,71 @@ header{
     color: white;
 }
 
-.food-card-back textarea{
+textarea{
     resize: vertical;
 }
 
 .food-card-back input[type='submit']{
     margin-bottom: 10px;
+    padding: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    background: radial-gradient(#fff0, #ffffff82);
+}
+
+.food-card-back input[type='submit']:hover{
+    background: radial-gradient(#fff0, #caf8ff82);
 }
 
 .disabled-input{
     border: none !important;
     box-shadow: none;
+}
+
+.contact h2{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 16px;
+    text-decoration: underline double;
+}
+
+.contact form{
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    padding: 2%;
+    background-color: #00538a;
+    color: white;
+}
+
+.contact form label{
+    width: 30%;
+}
+
+.contact form input, textarea{
+    width: 70%;
+    margin: 1% 0;
+    padding: 8px;
+    background: #ffffff3d;
+    border: 2px solid #ababab;
+    border-radius: 6px;
+    color: white;
+}
+
+.contact form input[type='submit']{
+    margin: 20px auto 0;
+    max-width: 120px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    background: radial-gradient(#fff0, #ffffff82);
+}
+
+.contact form input[type='submit']:hover{
+    background: radial-gradient(#fff0, #caf8ff82);
 }
 
 footer{
@@ -308,4 +372,58 @@ a{
 
 a:visited{
     color: inherit;
+}
+
+@media screen and (max-width: 750px) {
+    .header{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .card{
+        transform: scale(0.9);
+        margin: -10px -5px !important;
+    }
+
+    .food{
+        transform: scale(0.9);
+        margin: -20px -15px !important;
+    }
+}
+
+@media screen and (max-width: 450px){
+
+    :root{
+        --header-height: 500px;
+    }
+
+    .header{
+        flex-wrap: nowrap;
+        flex-direction: column;
+        height: 40%;
+    }
+
+    .searchbar{
+        height: 60%;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .searchbar .search{
+        width: 90%;
+    }
+
+    .card{
+        transform: scale(0.6);
+        margin: -70px -50px !important;
+    }
+
+    .food{
+        transform: scale(0.6);
+        margin: -80px -60px !important;
+    }
+
+    .header img{
+        max-height: 50%;
+    }
 }

@@ -2,6 +2,7 @@
 $menuId = 0;
 
 require_once __DIR__."/components/menu.php";
+
 ?>
 
 <div class="container">
@@ -47,7 +48,9 @@ require_once __DIR__."/components/menu.php";
                                     <h3><?php echo $food['title'] ?></h3>
                                     <span onclick="flipcard('<?php echo 'food-'.$food['id'] ?>')" ><?php echo file_get_contents(SITEURL."icons/flip.svg") ?></span>
                                 </div>
-                                <form action="" method="post">
+                                <form action="<?php echo SITEURL."order.php" ?>" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $food['id'] ?>">
+                                    <input type="hidden" name="price" value="<?php echo $food['price'] ?>">
                                     <fieldset>
                                         <legend>Order details</legend>
 
@@ -64,7 +67,7 @@ require_once __DIR__."/components/menu.php";
                                         <input type="text" name="name" id="name-<?php echo $food['id']?>" required>
 
                                         <label for="email-<?php echo $food['id']?>">Email :</label>
-                                        <input type="email" name="Email" id="email-<?php echo $food['id']?>" required>
+                                        <input type="email" name="email" id="email-<?php echo $food['id']?>" required>
 
                                         <label for="phone-<?php echo $food['id']?>">Phone no.:</label>
                                         <input type="tel" name="phone" id="phone-<?php echo $food['id']?>" required>
@@ -72,7 +75,7 @@ require_once __DIR__."/components/menu.php";
                                         <label for="address-<?php echo $food['id']?>">Address :</label>
                                         <textarea name="address" id="address-<?php echo $food['id']?>" minlength="10" maxlength="1000"></textarea>
                                     </fieldset>
-                                    <input type="submit" value="Place order">
+                                    <input type="submit" name="submit" value="Place order">
                                 </form>
                             </div>
                         </div>
@@ -84,7 +87,15 @@ require_once __DIR__."/components/menu.php";
     </div>
 </div>
 
-<?php require_once __DIR__."/components/foter.php" ?>
+<?php require_once __DIR__."/components/foter.php";
+
+if(isset($_SESSION['message'])){
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
+    echo '<script>alert("'.$message.'")</script>';
+}
+
+?>
 
 <script>
     function flipcard(id){
