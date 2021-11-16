@@ -362,7 +362,11 @@ textarea{
 }
 
 footer{
-    background-color: aqua;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* globals */

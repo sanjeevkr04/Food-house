@@ -30,8 +30,8 @@ function redirectToAdmin($message, $class, $target){
 
 	<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script> -->
 
-	<link rel="stylesheet" href=<?php echo SITEURL."/styles/admin.css" ?>>
-	<script src="<?php echo SITEURL."/js/actions.js" ?>"></script>
+	<link rel="stylesheet" href=<?php echo SITEURL."styles/admin.css" ?>>
+	<script src="<?php echo SITEURL."js/actions.js" ?>"></script>
 	<title><?php echo $title ?></title>
 </head>
 <body>

@@ -1,5 +1,7 @@
 
-        <footer></footer>
+        <footer>
+            All Rights Reserved.
+        </footer>
     </div>
 </body>
 </html>

@@ -13,6 +13,6 @@
 			$isSuperUser = $user['superuser'];
 		}
 	}else{
-		header('location:' . SITEURL. '/admin/login.php');
+		header('location:' . SITEURL. 'admin/login.php');
 	}
 ?>
